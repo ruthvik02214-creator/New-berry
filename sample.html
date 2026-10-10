@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cafe Berry Castle | Coffee, Snacks & Cakes in Rajarajeshwari Nagar</title>
+<meta name="description" content="Cafe Berry Castle is a cozy cafe in Rajarajeshwari Nagar, Bengaluru, serving coffee, cold coffee, cappuccino, Korean buns, chicken puffs, snacks and cakes." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --berry:#7b1e3a;
+    --berry-dark:#541227;
+    --cream:#fff8f1;
+    --gold:#d9a441;
+    --ink:#2b1a20;
+    --muted:#7a6a6f;
+    --card:#ffffff;
+    --shadow:0 18px 45px rgba(84,18,39,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none}
+  .container{width:min(1180px,92%);margin:auto}
+  .section{padding:82px 0}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 42px}
+  .eyebrow{color:var(--berry);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem}
+  h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.15}
+  h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:10px 0 12px}
+  .lead{color:var(--muted)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,248,241,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(123,30,58,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--berry),var(--gold));color:#fff;display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem}
+  .brand-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--berry-dark)}
+  .brand-sub{font-size:.72rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:22px}
+  .nav-links a{font-size:.92rem;font-weight:500;color:#4d3b41;position:relative}
+  .nav-links a:hover{color:var(--berry)}
+  .nav-actions{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.92rem;transition:.25s}
+  .btn-primary{background:var(--berry);color:#fff;box-shadow:0 10px 24px rgba(123,30,58,.22)}
+  .btn-primary:hover{background:var(--berry-dark);transform:translateY(-2px)}
+  .btn-outline{border:1.5px solid var(--berry);color:var(--berry);background:transparent}
+  .btn-outline:hover{background:var(--berry);color:#fff}
+  .cart-btn{position:relative;background:#fff;border:1.5px solid rgba(123,30,58,.2);padding:10px 16px;border-radius:999px;color:var(--berry)}
+  .cart-count{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#fff;font-size:.7rem;font-weight:700;min-width:20px;height:20px;border-radius:999px;display:grid;place-items:center}
+  .menu-toggle{display:none;background:none;font-size:1.6rem;color:var(--berry)}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#541227 0%,#7b1e3a 55%,#9b2c4d 100%);color:#fff;padding:100px 0 110px}
+  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 15%,rgba(217,164,65,.35),transparent 35%),radial-gradient(circle at 10% 85%,rgba(255,255,255,.12),transparent 32%)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4.2rem);margin:14px 0}
+  .hero p{max-width:540px;color:rgba(255,255,255,.85);font-size:1.05rem}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn-light{background:#fff;color:var(--berry-dark)}
+  .btn-light:hover{transform:translateY(-2px)}
+  .hero-stats{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap}
+  .stat strong{display:block;font-family:'Playfair Display',serif;font-size:1.7rem}
+  .stat span{font-size:.82rem;color:rgba(255,255,255,.75)}
+  .hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:26px;border-radius:26px;backdrop-filter:blur(14px)}
+  .hero-card h3{font-size:1.25rem;margin-bottom:14px}
+  .info-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.25);font-size:.93rem}
+  .info-row:last-child{border:none}
+  .status{color:#8ef0b0;font-weight:600}
+
+  /* Marquee */
+  .marquee{background:var(--gold);color:#3c2408;padding:12px 0;overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-block;animation:scroll 22s linear infinite;font-weight:600;letter-spacing:.04em}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* Menu */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:34px}
+  .filter{padding:9px 18px;border-radius:999px;background:#fff;border:1px solid rgba(123,30,58,.18);color:#5a434b;font-weight:500;font-size:.88rem}
+  .filter.active{background:var(--berry);border-color:var(--berry);color:#fff}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+  .dish{background:var(--card);border-radius:22px;padding:22px;box-shadow:var(--shadow);transition:.25s;border:1px solid rgba(123,30,58,.06)}
+  .dish:hover{transform:translateY(-6px)}
+  .dish-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+  .dish h3{font-size:1.12rem}
+  .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;padding:4px 9px;border-radius:999px;background:#f4e6d8;color:#8a5a1f;font-weight:700}
+  .tag.veg{background:#e8f6e8;color:#22703a}
+  .tag.nonveg{background:#fdeaea;color:#a12626}
+  .dish p{color:var(--muted);font-size:.9rem;margin:8px 0 16px}
+  .dish-bottom{display:flex;align-items:center;justify-content:space-between}
+  .price{font-weight:700;color:var(--berry);font-size:1.1rem}
+  .add{background:var(--berry);color:#fff;padding:9px 17px;border-radius:999px;font-weight:600;font-size:.85rem}
+  .add:hover{background:var(--berry-dark)}
+
+  /* About / gallery */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .feature-list{list-style:none;margin-top:22px;display:grid;gap:12px}
+  .feature-list li{display:flex;gap:12px;align-items:flex-start;color:#54424a}
+  .check{color:var(--berry);font-weight:700}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gallery div{aspect-ratio:1;border-radius:20px;display:grid;place-items:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.05rem;text-align:center;padding:14px}
+  .g1{background:linear-gradient(135deg,#7b1e3a,#b8475f)}
+  .g2{background:linear-gradient(135deg,#d9a441,#a76f1d)}
+  .g3{background:linear-gradient(135deg,#432b35,#7b1e3a)}
+
+  /* Reviews */
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .review{background:#fff;padding:26px;border-radius:22px;box-shadow:var(--shadow)}
+  .stars{color:var(--gold);letter-spacing:2px}
+  .review p{margin:12px 0;color:#54424a;font-size:.95rem}
+  .review-name{font-weight:600;font-size:.9rem}
+
+  /* Reservation */
+  .booking{background:linear-gradient(120deg,#fff,#fff4e8);border-radius:32px;padding:44px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  form{display:grid;gap:14px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  input,select,textarea{width:100%;padding:13px 15px;border:1.5px solid rgba(123,30,58,.18);border-radius:14px;background:#fff;font-family:inherit;font-size:.94rem;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid rgba(123,30,58,.25);border-color:var(--berry)}
+  .form-note{font-size:.82rem;color:var(--muted)}
+
+  /* Footer */
+  footer{background:var(--berry-dark);color:rgba(255,255,255,.82);padding:58px 0 26px;margin-top:80px}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+  footer h4{color:#fff;font-family:'Playfair Display',serif;margin-bottom:14px}
+  footer a:hover{color:var(--gold)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}
+
+  /* Cart drawer */
+  .overlay{position:fixed;inset:0;background:rgba(43,26,32,.55);opacity:0;visibility:hidden;transition:.3s;z-index:80}
+  .overlay.open{opacity:1;visibility:visible}
+  .cart{position:fixed;top:0;right:0;height:100%;width:min(420px,94%);background:#fff;z-index:90;transform:translateX(105%);transition:.35s ease;display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.2)}
+  .cart.open{transform:translateX(0)}
+  .cart-head{padding:22px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+  .cart-head h3{font-size:1.3rem;color:var(--berry-dark)}
+  .close-cart{font-size:1.5rem;background:none;color:var(--muted)}
+  .cart-items{flex:1;overflow:auto;padding:20px}
+  .cart-item{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px dashed #e7dcd2}
+  .qty{display:flex;align-items:center;gap:10px}
+  .qty button{width:29px;height:29px;border-radius:50%;background:#f4e6d8;color:var(--berry-dark);font-weight:700}
+  .cart-empty{text-align:center;color:var(--muted);padding:50px 10px}
+  .cart-foot{padding:20px;border-top:1px solid #eee;background:#fffaf5}
+  .total-row{display:flex;justify-content:space-between;font-weight:700;margin-bottom:14px}
+  .checkout{width:100%;padding:14px;border-radius:14px;background:var(--berry);color:#fff;font-weight:600}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120%);background:var(--berry-dark);color:#fff;padding:13px 22px;border-radius:999px;z-index:100;transition:.35s;font-size:.9rem}
+  .toast.show{transform:translate(-50%,0)}
+
+  @media(max-width:900px){
+    .hero-grid,.split,.booking,.footer-grid{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:64px 0 auto;background:var(--cream);flex-direction:column;padding:24px;gap:18px;transform:translateY(-130%);transition:.3s;border-bottom:1px solid rgba(123,30,58,.15)}
+    .nav-links.open{transform:translateY(0)}
+    .menu-toggle{display:block}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .row{grid-template-columns:1fr}
+    .section{padding:62px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <div class="logo">B</div>
+      <div>
+        <div class="brand-name">Cafe Berry Castle</div>
+        <div class="brand-sub">Rajarajeshwari Nagar · Bengaluru</div>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a href="#book">Reserve</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="openCart()">
+        🛍️ Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="tel:+919964991993" class="btn btn-primary">Call Now</a>
+      <button class="menu-toggle" onclick="toggleNav()">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow" style="color:var(--gold)">Aesthetic cafe · Quality coffee · Diverse snacks</div>
+      <h1>Your cozy corner for coffee, buns & bites.</h1>
+      <p>Cafe Berry Castle serves freshly brewed coffee, cold coffee, cappuccino, Korean buns, chicken puffs, sandwiches, cakes and more—perfect for a quick break or a relaxed evening.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-light">Explore Menu</a>
+        <a href="#book" class="btn btn-outline" style="border-color:#fff;color:#fff">Reserve a Table</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>4.8★</strong><span>192 Google reviews</span></div>
+        <div class="stat"><strong>₹1–200</strong><span>Affordable for most guests</span></div>
+        <div class="stat"><strong>Open till 11 PM</strong><span>Confirmed by the business</span></div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Today at Berry Castle</h3>
+      <div class="info-row"><span>Location</span><span>Mysore Rd, Kenchenhalli, RR Nagar</span></div>
+      <div class="info-row"><span>Status</span><span class="status">Open · Closes 11 PM</span></div>
+      <div class="info-row"><span>Phone</span><span>099649 91993</span></div>
+      <div class="info-row"><span>Must try</span><span>Korean buns & chicken puffs</span></div>
+      <div class="info-row"><span>Guest favourite</span><span>Cold coffee & cappuccino</span></div>
+      <a class="btn btn-light" style="width:100%;margin-top:18px" href="https://maps.google.com/?q=Cafe+Berry+Castle+Mysore+Road+Kenchenhalli+Rajarajeshwari+Nagar+Bengaluru" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    ☕ Fresh Coffee &nbsp;•&nbsp; 🍞 Korean Buns &nbsp;•&nbsp; 🥐 Chicken Puffs &nbsp;•&nbsp; 🍰 Cakes & Donuts &nbsp;•&nbsp; 🥪 Sandwiches &nbsp;•&nbsp; 🧃 Fresh Juices &nbsp;•&nbsp; ☕ Fresh Coffee &nbsp;•&nbsp; 🍞 Korean Buns &nbsp;•&nbsp; 🥐 Chicken Puffs &nbsp;•&nbsp; 🍰 Cakes & Donuts &nbsp;•&nbsp; 🥪 Sandwiches &nbsp;•&nbsp; 🧃 Fresh Juices &nbsp;•&nbsp;
+  </div>
+</div>
+
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Menu</div>
+      <h2>Made for coffee breaks & cravings</h2>
+      <p class="lead">Browse the menu, add favourites to your cart, and place a quick order request by phone or WhatsApp.</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="coffee">Coffee</button>
+      <button class="filter" data-filter="snacks">Snacks & Puffs</button>
+      <button class="filter" data-filter="sandwich">Sandwiches</button>
+      <button class="filter" data-filter="dessert">Cakes & Desserts</button>
+      <button class="filter" data-filter="drinks">Juices & Drinks</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:#fff">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">About Us</div>
+      <h2>A relaxing cafe with quality coffee and friendly service</h2>
+      <p class="lead">Cafe Berry Castle is known for its cozy, relaxing atmosphere, reasonable prices, and a menu that ranges from hot coffee and cold coffee to Korean buns, chicken puffs, sandwiches and cakes.</p>
+      <ul class="feature-list">
+        <li><span class="check">✔</span><span><strong>Guest-loved coffee:</strong> Cold coffee and cappuccino are frequently highlighted by visitors.</span></li>
+        <li><span class="check">✔</span><span><strong>Popular snacks:</strong> Korean buns and chicken puffs are standout recommendations.</span></li>
+        <li><span class="check">✔</span><span><strong>Value for money:</strong> Guests often mention reasonable prices for the quality offered.</span></li>
+        <li><span class="check">✔</span><span><strong>Friendly team:</strong> Reviews frequently praise excellent, friendly service.</span></li>
+      </ul>
+      <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="tel:+919964991993">Call 099649 91993</a>
+        <a class="btn btn-outline" href="https://maps.google.com/?q=Cafe+Berry+Castle+Mysore+Road+Kenchenhalli+Rajarajeshwari+Nagar+Bengaluru" target="_blank" rel="noopener">View on Maps</a>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="g1">Freshly brewed coffee & cozy seating</div>
+      <div class="g2">Korean buns, puffs & savory snacks</div>
+      <div class="g3">Cakes, donuts & sweet treats</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Guest Reviews</div>
+      <h2>4.8★ from 192 reviews</h2>
+      <p class="lead">Visitors especially enjoy the coffee, snacks, prices, atmosphere and service.</p>
+    </div>
+    <div class="reviews">
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Good place, nice atmosphere, good coffee, nice service 😁”</p>
+        <div class="review-name">Google review</div>
+      </article>
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Healthy and tasty food experience.”</p>
+        <div class="review-name">Google review</div>
+      </article>
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Don’t miss the Korean buns and chicken puffs.”</p>
+        <div class="review-name">Google review</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="book">
+  <div class="container">
+    <div class="booking">
+      <div>
+        <div class="eyebrow">Reserve a Table</div>
+        <h2>Plan your cafe visit</h2>
+        <p class="lead">Fill in your details and we’ll help arrange your table. For urgent bookings, call us directly at <strong>099649 91993</strong>.</p>
+      </div>
+      <form id="bookingForm">
+        <div class="row">
+          <input type="text" id="bName" placeholder="Your name" required />
+          <input type="tel" id="bPhone" placeholder="Phone number" required />
+        </div>
+        <div class="row">
+          <input type="date" id="bDate" required />
+          <input type="time" id="bTime" required />
+        </div>
+        <div class="row">
+          <select id="bGuests" required>
+            <option value="">Number of guests</option>
+            <option>1 guest</option>
+            <option>2 guests</option>
+            <option>3–4 guests</option>
+            <option>5–8 guests</option>
+            <option>9+ guests</option>
+          </select>
+          <select id="bOccasion">
+            <option value="">Occasion (optional)</option>
+            <option>Casual coffee</option>
+            <option>Birthday</option>
+            <option>Work meetup</option>
+            <option>Friends hangout</option>
+          </select>
+        </div>
+        <textarea id="bNotes" rows="3" placeholder="Special requests (optional)"></textarea>
+        <button type="submit" class="btn btn-primary">Request Reservation</button>
+        <p class="form-note">This demo saves your request locally and prepares a WhatsApp confirmation message.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit" style="background:#fff">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Visit Us</div>
+      <h2>Find Cafe Berry Castle</h2>
+    </div>
+    <div class="split">
+      <div>
+        <h3 style="font-size:1.4rem;color:var(--berry-dark)">Cafe Berry Castle</h3>
+        <p class="lead" style="margin-top:10px">Mysore Rd, Kenchenhalli,<br>Rajarajeshwari Nagar, Bengaluru,<br>Karnataka 560026</p>
+        <div style="margin-top:22px;display:grid;gap:10px">
+          <p>📞 <a href="tel:+919964991993"><strong>099649 91993</strong></a></p>
+          <p>🕒 Open daily · Closes at 11 PM</p>
+          <p>💰 Typical spend: ₹1–200 per person</p>
+          <p>⭐ 4.8 rating from 192 reviews</p>
+        </div>
+      </div>
+      <iframe title="Cafe Berry Castle location" src="https://www.google.com/maps?q=Cafe+Berry+Castle+Mysore+Road+Kenchenhalli+Rajarajeshwari+Nagar+Bengaluru&output=embed" width="100%" height="360" style="border:0;border-radius:24px" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Cafe Berry Castle</h4>
+        <p>Aesthetic cafe serving quality coffee and diverse snacks in Rajarajeshwari Nagar, Bengaluru.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="#menu">Menu</a><br><a href="#about">About</a><br><a href="#reviews">Reviews</a><br><a href="#book">Reservations</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Mysore Rd, Kenchenhalli,<br>RR Nagar, Bengaluru 560026<br><a href="tel:+919964991993">099649 91993</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Cafe Berry Castle. All rights reserved.</span>
+      <span>Coffee · Snacks · Cakes · Good vibes</span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Order</h3>
+    <button class="close-cart" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="total-row"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="checkout" onclick="checkout()">Send Order on WhatsApp</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const menu = [
+  {id:1,name:"Cold Coffee",cat:"coffee",price:90,desc:"Chilled, creamy coffee—our guest favourite.",tag:"Veg",type:"veg"},
+  {id:2,name:"Cappuccino",cat:"coffee",price:80,desc:"Espresso with steamed milk and a smooth foam layer.",tag:"Veg",type:"veg"},
+  {id:3,name:"Hot Coffee",cat:"coffee",price:60,desc:"Classic hot coffee, comforting and simple.",tag:"Veg",type:"veg"},
+  {id:4,name:"Korean Bun",cat:"snacks",price:70,desc:"Soft, flavourful bun—highly recommended by guests.",tag:"Veg",type:"veg"},
+  {id:5,name:"Chicken Puff",cat:"snacks",price:60,desc:"Flaky pastry filled with seasoned chicken.",tag:"Non-Veg",type:"nonveg"},
+  {id:6,name:"Egg Puff",cat:"snacks",price:44,desc:"Crisp puff pastry with a boiled egg filling.",tag:"Non-Veg",type:"nonveg"},
+  {id:7,name:"Vegetable Puff",cat:"snacks",price:31,desc:"Golden pastry stuffed with spiced vegetables.",tag:"Veg",type:"veg"},
+  {id:8,name:"Veg Club Sandwich",cat:"sandwich",price:95,desc:"Layered vegetable sandwich, fresh and filling.",tag:"Veg",type:"veg"},
+  {id:9,name:"Cheese Samosa",cat:"snacks",price:45,desc:"Crunchy samosa with a cheesy filling.",tag:"Veg",type:"veg"},
+  {id:10,name:"Lava Cake",cat:"dessert",price:110,desc:"Warm chocolate cake with a gooey centre.",tag:"Veg",type:"veg"},
+  {id:11,name:"Choco Donut",cat:"dessert",price:65,desc:"Soft donut finished with chocolate glaze.",tag:"Veg",type:"veg"},
+  {id:12,name:"Honey Cake",cat:"dessert",price:55,desc:"Moist sponge cake with honey sweetness.",tag:"Veg",type:"veg"},
+  {id:13,name:"Fresh Fruit Juice",cat:"drinks",price:70,desc:"Refreshing seasonal fruit juice.",tag:"Veg",type:"veg"},
+  {id:14,name:"Loaded Italian Drink",cat:"drinks",price:120,desc:"A rich, indulgent cafe special.",tag:"Veg",type:"veg"}
+];
+
+let cart = {};
+let activeFilter = "all";
+
+const menuGrid = document.getElementById("menuGrid");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const cartCount = document.getElementById("cartCount");
+
+function renderMenu(){
+  menuGrid.innerHTML = "";
+  menu.filter(item => activeFilter === "all" || item.cat === activeFilter).forEach(item=>{
+    menuGrid.innerHTML += `
+      <article class="dish">
+        <div class="dish-top">
+          <h3>${item.name}</h3>
+          <span class="tag ${item.type}">${item.tag}</span>
+        </div>
+        <p>${item.desc}</p>
+        <div class="dish-bottom">
+          <span class="price">₹${item.price}</span>
+          <button class="add" onclick="addToCart(${item.id})">Add +</button>
+        </div>
+      </article>`;
+  });
+}
+
+document.getElementById("filters").addEventListener("click", e=>{
+  if(!e.target.classList.contains("filter")) return;
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  e.target.classList.add("active");
+  activeFilter = e.target.dataset.filter;
+  renderMenu();
+});
+
+function addToCart(id){
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  showToast(`${menu.find(m=>m.id===id).name} added to cart`);
+}
+
+function changeQty(id,delta){
+  cart[id] += delta;
+  if(cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function renderCart(){
+  const ids = Object.keys(cart);
+  cartCount.textContent = ids.reduce((s,id)=>s+cart[id],0);
+  if(!ids.length){
+    cartItems.innerHTML = `<div class="cart-empty">Your cart is empty.<br>Add a coffee or snack to get started!</div>`;
+    cartTotal.textContent = "₹0";
+    return;
+  }
+  let total = 0;
+  cartItems.innerHTML = ids.map(id=>{
+    const item = menu.find(m=>m.id==id);
+    const qty = cart[id];
+    total += item.price*qty;
+    return `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong><br>
+          <small>₹${item.price} × ${qty}</small>
+        </div>
+        <div class="qty">
+          <button onclick="changeQty(${id},-1)">−</button>
+          <span>${qty}</span>
+          <button onclick="changeQty(${id},1)">+</button>
+        </div>
+      </div>`;
+  }).join("");
+  cartTotal.textContent = `₹${total}`;
+}
+
+function openCart(){
+  document.getElementById("cartDrawer").classList.add("open");
+  document.getElementById("overlay").classList.add("open");
+}
+function closeCart(){
+  document.getElementById("cartDrawer").classList.remove("open");
+  document.getElementById("overlay").classList.remove("open");
+}
+
+function checkout(){
+  const ids = Object.keys(cart);
+  if(!ids.length){ showToast("Please add items to your cart first"); return; }
+  let total = 0;
+  let lines = ids.map(id=>{
+    const item = menu.find(m=>m.id==id);
+    total += item.price*cart[id];
+    return `${item.name} x${cart[id]} = ₹${item.price*cart[id]}`;
+  }).join("\n");
+  const message = `Hello Cafe Berry Castle! I would like to order:\n${lines}\n\nTotal: ₹${total}`;
+  window.open(`https://wa.me/919964991993?text=${encodeURIComponent(message)}`,"_blank");
+}
+
+document.getElementById("bookingForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const msg = `Hello Cafe Berry Castle! I would like to reserve a table.\nName: ${bName.value}\nPhone: ${bPhone.value}\nDate: ${bDate.value}\nTime: ${bTime.value}\nGuests: ${bGuests.value}\nOccasion: ${bOccasion.value || "Not specified"}\nNotes: ${bNotes.value || "None"}`;
+  localStorage.setItem("berryCastleReservation", msg);
+  window.open(`https://wa.me/919964991993?text=${encodeURIComponent(msg)}`,"_blank");
+  showToast("Reservation request prepared!");
+  e.target.reset();
+});
+
+function toggleNav(){
+  document.getElementById("navLinks").classList.toggle("open");
+}
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open")));
+
+let toastTimer;
+function showToast(text){
+  const toast = document.getElementById("toast");
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove("show"),2200);
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderMenu();
+renderCart();
+</script>
+</body>
+</html>
